@@ -9,29 +9,29 @@ class FinalSpace:
 			"accept": "application/json"
 		}
 	
+	def _get(self, endpoint: str) -> dict:
+		return self.session.get(endpoint).json()
+
 	def get_endpoints(self) -> dict:
-		return self.session.get(self.api).json()
-	
+		return self._get(self.api)
+
 	def get_character(self, character_id: int) -> dict:
-		return self.session.get(
-			f"{self.api}/character/{character_id}").json()
+		return self._get(f"{self.api}/character/{character_id}")
 			
 	def get_all_characters(self) -> dict:
-		return self.session.get(f"{self.api}/character").json()
+		return self._get(f"{self.api}/character")
 	
 	def get_episode(self, episode_id: int) -> dict:
-		return self.session.get(
-			f"{self.api}/episode/{episode_id}").json()
+		return self._get(f"{self.api}/episode/{episode_id}")
 			
 	def get_all_episodes(self) -> dict:
-		return self.session.get(f"{self.api}/episode").json()
+		return self._get(f"{self.api}/episode")
 
 	def get_location(self, location_id: int) -> dict:
-		return self.session.get(
-			f"{self.api}/locations/{location_id}").json()
+		return self._get(f"{self.api}/locations/{location_id}")
 			
 	def get_all_locations(self) -> dict:
-		return self.session.get(f"{self.api}/locations").json()
+		return self._get(f"{self.api}/locations")
 	
 	def get_all_quotes(self) -> dict:
-		return self.session.get(f"{self.api}/quote").json()
+		return self._get(f"{self.api}/quote")
